@@ -1,0 +1,27 @@
+git生成公私密钥：
+ssh-keygen -t rsa -C github上的邮箱    :生成公私密钥(可以指定密钥生成位置，密码不用填)
+ssh-agent bash/-s   :bash和-s两个使用其中之一就行
+ssh-add 密钥保存位置(自定义的) :这两行是将密钥的位置配置到ssh中，否则GitHub会找不到匹配密钥拒绝连接
+ssh -T git@github.com    :测试能否连接到GitHub
+
+git常用命令：
+git init       :创建本地仓库
+git status     :查看本地仓库状态
+git remote add origin(远程仓库名) 远程仓库的SSH   :本地库与远程库进行关联
+git push -u(-u表示第一次提交，之后不用加) origin 分支名 :第一次提交到某一分支
+git branch     :查看本地仓库分支信息
+git branch -r  :查看远程仓库分支信息
+git checkout -b 分支名  :创建分支并且转到新建分支上
+git branch 分支名     :创建分支
+git checkout 分支名   :切换到指定分支
+git add ./[文件]   :将修改文件添加到本地仓库暂存区
+git commit -m "说明信息" [文件]  :将暂存区文件推送到本地仓库(注:[]表示可有可无)
+git push origin(远程仓库名) 分支名   :创建远程分支(将本地分支推送到远程分支)
+git log --graph   :查看提交分支图
+git log --pretty=oneline  :简化日志显示
+git reset --hard HEAD^    :回滚到上一版本(有几个^符号就回滚几个版本)
+git reflog     :查看提交的索引值
+git log        :查看日志信息
+git reset --hard HEAD~n   :回滚n个版本
+git merge 分支名   :在master分支上，将其他分支合并到master分支上
+
